@@ -13,14 +13,14 @@ const model = {
         tripID: 1,
         shownUserID: 0,
         buttons:[{
-            fuctionName: 'myPage',
-            buttonName: 'Min Side',
-        },
-        {
-            fuctionName: 'hikeSugestion',
-            buttonName: 'TurForslag', 
-        }
-    ]
+                fuctionName: 'myPage',
+                buttonName: 'Min Side',
+            },
+            {
+                fuctionName: 'hikeSugestion',
+                buttonName: 'TurForslag', 
+            }
+        ],
         
     }, 
 
