@@ -27,3 +27,8 @@ button:active {
     border-color: #1B5E20; /* Matcher rammen ved hover */
 }
 
+/* Side menu */
+
+.side-menu {
+    background-color: blue;
+}

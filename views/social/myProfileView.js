@@ -1,13 +1,7 @@
 function renderMyProfileView(){
     document.getElementById("app").innerHTML = /*HTML*/ `
     
-    
-<<<<<<< Updated upstream
-    <img src="img\Screenshot_4.png" />
-=======
-    <img src="img/NewProject.png" />
-    <img src="img/download.png" />
->>>>>>> Stashed changes
+    <img src="img/placeholder.jpg" alt="Placeholder picture"/>
     <div>
 
     Min fysiske form:
@@ -18,19 +12,14 @@ function renderMyProfileView(){
         <option value=4>4</option>
         <option value=5>5</option>
     </select>
-   
+    
+    <div>${getAchievementView()}</div>
     </div>
     `
 };
 
-{/* <label for="pet-select">Choose a pet:</label>
-
-<select name="pets" id="pet-select">
-  <option value="">--Please choose an option--</option>
-  <option value="dog">Dog</option>
-  <option value="cat">Cat</option>
-  <option value="hamster">Hamster</option>
-  <option value="parrot">Parrot</option>
-  <option value="spider">Spider</option>
-  <option value="goldfish">Goldfish</option>
-</select> */}
+function getAchievementView() {
+    return /*HTML*/ `
+    <div>Dette er achievements</div>
+    `
+}
