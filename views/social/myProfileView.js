@@ -2,7 +2,12 @@ function renderMyProfileView(){
     document.getElementById("app").innerHTML = /*HTML*/ `
     
     
+<<<<<<< Updated upstream
     <img src="img\Screenshot_4.png" />
+=======
+    <img src="img/NewProject.png" />
+    <img src="img/download.png" />
+>>>>>>> Stashed changes
     <div>
 
     Min fysiske form:
