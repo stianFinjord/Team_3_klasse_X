@@ -2,7 +2,7 @@ function renderMyProfileView(){
     document.getElementById("app").innerHTML = /*HTML*/ `
     
     
-    <img src="img/NewProject.png" />
+    <img src="img\Screenshot_4.png" />
     <div>
 
     Min fysiske form:
