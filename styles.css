@@ -1,0 +1,29 @@
+/* button {
+    background-color: aquamarine;
+    border-radius: 20px;
+} */
+
+
+
+button {
+    background-color: #4CAF50; /* Jordnær grønn farge */
+    color: white; /* Hvit tekst for kontrast */
+    border: 2px solid #2E7D32; /* Litt mørkere grønn for ramme */
+    border-radius: 8px; /* Litt avrundede kanter */
+    padding: 10px 20px; /* Polstring for størrelse */
+    font-size: 16px; /* God skriftstørrelse for lesbarhet */
+    font-family: 'Arial', sans-serif; /* Enkel, ren skrifttype */
+    cursor: pointer; /* Pekeren endres til hånd ved hover */
+    transition: background-color 0.3s ease, border 0.3s ease; /* Jevn overgang for hover-effekt */
+}
+
+button:hover {
+    background-color: #388E3C; /* Mørkere grønn ved hover */
+    border-color: #1B5E20; /* Enda mørkere grønn for rammen ved hover */
+}
+
+button:active {
+    background-color: #2E7D32; /* Litt mørkere grønn når knappen er aktiv */
+    border-color: #1B5E20; /* Matcher rammen ved hover */
+}
+
