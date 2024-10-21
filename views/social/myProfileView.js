@@ -3,9 +3,9 @@ function renderMyProfileView(){
     
     <img src="img/placeholder.jpg" alt="Placeholder picture"/>
     <div> 
-        <input type="text" onchange="">>Fysisk Form<
-        <button onclick="" >Brukernavn</button>
-        <button onclick="" >Mine venner</button>
+        <input type="value" onchange="${userProfile[i].userPhysical}">>Fysisk Form<
+        <input type="text" onchange="${userProfile[i].userName}">>Brukernavn<
+        <button onclick="renderFriendOverview()">Mine venner</button>
     </div>
 
     Min fysiske form:

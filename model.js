@@ -18,7 +18,7 @@ const model = {
             },
             {
                 functionName: 'hikeSugestion',
-                buttonName: 'TurForslag', 
+                buttonName: 'TurForslag',
             }
         ],
         
