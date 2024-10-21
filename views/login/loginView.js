@@ -9,7 +9,3 @@ function renderLoginView(){
     </div>
     `;
 }
-
-function someFunction() {
-    console.log("Hei alle sammen!");
-}
