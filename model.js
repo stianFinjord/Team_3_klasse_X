@@ -13,9 +13,11 @@ const model = {
         tripID: 1,
         shownUserID: 0,
         buttons:[{
+                functionName: 'myPage',
                 buttonName: 'Min Side',
             },
             {
+                functionName: 'hikeSugestion',
                 buttonName: 'TurForslag', 
             }
         ],
