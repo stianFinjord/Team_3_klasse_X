@@ -37,6 +37,7 @@ const model = {
         searchField:{
             searchText: null,
         },
+        userPhysical:{} 
     },
 
     data: {
