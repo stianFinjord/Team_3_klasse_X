@@ -33,6 +33,7 @@ const model = {
             userName: null,
             email: null,
             password: null,
+            repeatPassword: null,
         },
         searchField:{
             searchText: null,

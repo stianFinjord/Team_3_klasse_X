@@ -8,7 +8,7 @@ function renderRegisterUserView(){
         <input type="text" class="input" placeholder="Brukernavn"><br>
         <input type="password" class="input" placeholder="Passord"><br>
         <input type="password" class="input" placeholder="Gjenta Passord"><br>
-        <button>Registrer deg</button><br>
+        <button onclick>Registrer deg</button><br>
     </div> 
     `;
 }
