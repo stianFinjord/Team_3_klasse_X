@@ -36,4 +36,6 @@ button:active {
     width: 100px;
     position: fixed;
     overflow-x: hidden;
+    top: 0;
+    right: 0;
 }
