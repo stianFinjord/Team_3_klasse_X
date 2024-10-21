@@ -2,7 +2,11 @@ function renderMyProfileView(){
     document.getElementById("app").innerHTML = /*HTML*/ `
     
     <img src="img/placeholder.jpg" alt="Placeholder picture"/>
-    <div>
+    <div> 
+        <input type="text" onchange="">>Fysisk Form<
+        <button onclick="" >Brukernavn</button>
+        <button onclick="" >Mine venner</button>
+    </div>
 
     Min fysiske form:
     <select>
