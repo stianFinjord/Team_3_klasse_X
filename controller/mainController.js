@@ -14,3 +14,11 @@ function showView() {
 // disse er bare til hjelp
 //renderRegisterUserView();
 
+let isMenuOpen = false;
+function toggleMenu() {
+    if (isMenuOpen) {
+        isMenuOpen = false;
+    } else {
+        isMenuOpen = true;
+    }
+}
