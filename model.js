@@ -7,17 +7,14 @@
 const model = {
     app: {
         // currentPage endres avhengig av hvilken side som skal vises
-        currentPage: "register", // login, register, myProfile, recommendedTrips, friendsOveriew, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripReview, feedView, footerView
         loggedInUser: null,
         tripID: 1,
         shownUserID: 0,
         buttons:[{
-                fuctionName: 'myPage',
                 buttonName: 'Min Side',
             },
             {
-                fuctionName: 'hikeSugestion',
                 buttonName: 'TurForslag', 
             }
         ],

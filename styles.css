@@ -32,4 +32,8 @@ button:active {
 
 .side-menu {
     background-color: blue;
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    overflow-x: hidden;
 }
