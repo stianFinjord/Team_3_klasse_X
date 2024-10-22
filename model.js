@@ -7,7 +7,7 @@
 const model = {
     app: {
         // currentPage endres avhengig av hvilken side som skal vises
-        currentPage: "renderMyProfileView", // login, register, myProfile, recommendedTrips, friendsOveriew, 
+        currentPage: "register", // login, register, myProfile, recommendedTrips, friendsOveriew, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripReview, feedView, footerView
         loggedInUser: null,
         tripID: 1,
@@ -45,7 +45,7 @@ const model = {
     
         userProfile: [ 
             {
-            id: 1,
+            id: 0,
             userFullName: "Jørgine Heffalompen",
             userName: "brukernavn",
             email: "eksempel@gmail.com",

@@ -1,10 +1,10 @@
-function renderMyProfileView(){
-    document.getElementById("app").innerHTML = /*HTML*/ `
+function renderMyProfileView(){ //FIXME: Feilmeldinger når man kjører
+   /*  document.getElementById("app").innerHTML = /*HTML*/ /*`
     
     <img src="img/placeholder.jpg" alt="Placeholder picture"/>
     <div> 
-        <input type="value" onchange="${userProfile[i].userPhysical}">>Fysisk Form<
-        <input type="text" onchange="${userProfile[i].userName}">>Brukernavn<
+        <input type="value" onchange="${userProfile[i].userPhysical}">Fysisk Form
+        <input type="text" onchange="${userProfile[i].userName}">Brukernavn
         <button onclick="renderFriendOverview()">Mine venner</button>
     </div>
 
@@ -18,7 +18,13 @@ function renderMyProfileView(){
     </select>
     
     <div>${getAchievementView()}</div>
-    </div>
+    `
+     */
+};
+
+function renderMyProfileView(){
+    document.getElementById("app").innerHTML = /*HTML*/ `
+        placeholder profile view
     `
 };
 
