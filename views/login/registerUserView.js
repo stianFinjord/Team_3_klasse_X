@@ -15,6 +15,7 @@ function renderRegisterUserView() {
 
 
 function registerButton() {
+  // skal hente informasjon fra model.input.createAccount, og prosessere dette (lage bruker, slette verdi her etc)
    model.input.createAccount.userName = userName;
    model.input.createAccount.email = email;
    model.input.createAccount.password = password;
