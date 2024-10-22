@@ -4,7 +4,11 @@
 } */
 
 
-
+#app {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
 
 button {
     background-color: #4CAF50; /* Jordnær grønn farge */
@@ -38,4 +42,10 @@ button:active {
     overflow-x: hidden;
     top: 0;
     right: 0;
+}
+
+.hamburger-icon {
+    font-size: 3em;
+    padding: 10px;
+    cursor: pointer;
 }
