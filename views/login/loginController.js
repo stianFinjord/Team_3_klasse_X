@@ -3,29 +3,27 @@ function setViewRegister() {
     showView();
 }
 
-function createAccount() {
-    let createAccount = model.input.createAccount
+// function createAccount() {
+//     let createAccount = model.input.createAccount
 
-    let newAccount = {
-        username: createaccount.userName,
-        userId: model.data.users.lenght + 1,
-        e-mail: createAccount.email
-        password: createAccount.password
-        userPicture: createAccount.userPicture
-
-
-    }
-}
+//     let newAccount = {
+//         username: userName,
+//         userId: model.data.users.lenght + 1,
+//         e-mail: createAccount.email
+//         password: createAccount.password
+//         userPicture: createAccount.userPicture
 
 
-model.data.users.push(newUser);
+//     }
+// }
 
-createAccount.username = '';
-createAccount.email = '';
-createAccount.password = '',
-createAccount.repeatPw = '',
 
-}else {
-    alert('Passordene dine stemmer ikke liksm')
-}
+// model.data.users.push(newUser);
+
+// createAccount.username = '';
+// createAccount.email = '';
+// createAccount.password = '',
+// createAccount.repeatPw = '',
+
+
  
