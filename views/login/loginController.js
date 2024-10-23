@@ -1,16 +1,14 @@
 function setViewRegister() {
-    model.app.currentPage = 'register';
-    showView();
+  model.app.currentPage = 'register';
+  showView();
 }
 
-
-
+// Gets data from model.input.createAccount and pushes new user to model.data
 function createAccount() {
-  // i model.data.userProfile blir det lagt til et nytt objekt
   let createAccount = model.input.createAccount;
-  
+
   let newAccount = {
-    id: model.data.userProfile.length + 1, //FIX ME! (length + Id problematikk)
+    id: model.data.userProfile.length + 1, //FIXME: Does not guarantee unique ID
     userFullName: "",
     userName: createAccount.userName,
     email: createAccount.email,
@@ -34,9 +32,30 @@ function createAccount() {
 };
 
 function clickRegisterButton() {
-    createAccount();
+  createAccount();
+  model.app.currentPage = "myProfile";
+  showView();
+};
+
+function clickLogInButton() { // setsLoggedInUser, updates view
+  if (isUsernameAndPasswordCorrect()) {
+    model.app.loggedInUser = model.input.loginForm.email; //FIXME
+
+
     model.app.currentPage = "myProfile";
     showView();
+  } else {
+    alert("Passord eller brukernavn er feil!");
+  }
+}
+
+function isUsernameAndPasswordCorrect(){
+  if ((model.data.userProfile[0].email === model.input.loginForm.email) && 
+    (model.data.userProfile[0].password === model.input.loginForm.password)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -48,39 +67,3 @@ function clickRegisterButton() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// function createAccount() {
-//     let createAccount = model.input.createAccount
-
-//     let newAccount = {
-//         username: userName,
-//         userId: model.data.users.lenght + 1,
-//         e-mail: createAccount.email
-//         password: createAccount.password
-//         userPicture: createAccount.userPicture
-
-
-//     }
-// }
-
-
-// model.data.users.push(newUser);
-
-// createAccount.username = '';
-// createAccount.email = '';
-// createAccount.password = '',
-// createAccount.repeatPw = '',
-
-
- 
