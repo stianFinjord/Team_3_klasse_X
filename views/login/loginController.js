@@ -54,7 +54,7 @@ function isUsernameAndPasswordCorrect(){
     (model.data.userProfile[0].password === model.input.loginForm.password)) {
     return true;
   } else {
-    return false;
+    return false; //fixme
   }
 }
 

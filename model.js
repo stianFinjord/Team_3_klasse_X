@@ -7,7 +7,7 @@
 const model = {
     app: {
         // currentPage endres avhengig av hvilken side som skal vises
-        currentPage: "tripView", // login, register, myProfile, recommendedTrips, friendsOveriew, 
+        currentPage: "login", // login, register, myProfile, recommendedTrips, friendsOveriew, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripView, feedView, footerView
         loggedInUser: null,
         tripID: 1,

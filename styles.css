@@ -21,16 +21,19 @@ button {
     font-family: 'Arial', sans-serif;
     cursor: pointer;
     transition: background-color 0.3s ease, border 0.3s ease;
+   
 }
 
 button:hover {
     background-color: #A3B18A; /* Soft Moss - hover effect color */
     border-color: #607D8B; /* Slate Blue - hover border color */
+  
 }
 
 button:active {
     background-color: #8B6B61; /* Muted Brown - active button background */
     border-color: #4B6A50; /* Forest Green - active border color */
+   
 }
 
 
