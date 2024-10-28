@@ -1,5 +1,5 @@
-function renderFriendOverview(){
-    document.getElementById("app").innerHTML = /*HMTL*/`
-
+function renderFriendsOverview(){
+    document.getElementById("app").innerHTML = /*HTML*/`
+    her er mine venner woop
     `
 }

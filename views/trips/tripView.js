@@ -2,7 +2,7 @@ function renderTripView(){
     document.getElementById("app").innerHTML = /*HTML*/ `
     ${getNavigationMenu()}
 
-  <div>
+    <div class ="app-view">
 
     `;
 }

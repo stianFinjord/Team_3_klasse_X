@@ -2,14 +2,18 @@
 
 /* App container */
 #app {
+    height: 100vh;
+    background-color: #dce7ec; /* Stone Gray - main background color */
+    
+    
+}
+
+.app-view {
     flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #ECE6DC; /* Stone Gray - main background color */
 }
-
 /* Buttons */
 button {
     background-color: #4B6A50; /* Forest Green - primary button color */
@@ -42,7 +46,7 @@ button:active {
 .side-menu {
     background-color: blue;
     height: 100%;
-    width: 100px;
+    width: 90%;
     position: fixed;
     overflow-x: hidden;
     top: 0;
@@ -50,15 +54,15 @@ button:active {
 }
 
 .hamburger-icon {
-    font-size: 3em;
-    padding: 10px;
+    font-size: 5em;
+    padding: 0px;
     cursor: pointer;
     align-self: self-end;
 }
 
 
 .nav-menu {
-    max-height: 50px;
+    max-height: 70px;
     transition: 300ms ease;
     overflow: hidden;
     display: flex;

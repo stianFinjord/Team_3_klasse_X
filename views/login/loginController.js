@@ -1,5 +1,5 @@
 function setViewRegister() {
-  model.app.currentPage = 'register';
+  model.app.currentPage = "register";
   showView();
 }
 
@@ -29,18 +29,19 @@ function createAccount() {
   createAccount.userName = "";
   createAccount.password = "";
   createAccount.repeatPassword = "";
-};
+}
 
 function clickRegisterButton() {
   createAccount();
   model.app.currentPage = "myProfile";
   showView();
-};
+}
 
-function clickLogInButton() { // setsLoggedInUser, updates view
+function clickLogInButton() {
   if (isUsernameAndPasswordCorrect()) {
-    model.app.loggedInUser = model.input.loginForm.email; //FIXME
-
+    model.app.loggedInUser = getUserProfileFromEmail(
+      model.input.loginForm.email
+    );
 
     model.app.currentPage = "myProfile";
     showView();
@@ -49,21 +50,14 @@ function clickLogInButton() { // setsLoggedInUser, updates view
   }
 }
 
-function isUsernameAndPasswordCorrect(){
-  if ((model.data.userProfile[0].email === model.input.loginForm.email) && 
-    (model.data.userProfile[0].password === model.input.loginForm.password)) {
+function isUsernameAndPasswordCorrect() {
+  //FIXME: Needs to iterate all usernames and passwords
+  if (
+    model.data.userProfile[0].email === model.input.loginForm.email &&
+    model.data.userProfile[0].password === model.input.loginForm.password
+  ) {
     return true;
   } else {
-    return false; //fixme
+    return false;
   }
 }
-
-
-
-
-
-
-
-
-
-

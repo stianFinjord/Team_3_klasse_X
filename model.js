@@ -7,9 +7,23 @@
 const model = {
     app: {
         // currentPage endres avhengig av hvilken side som skal vises
-        currentPage: "login", // login, register, myProfile, recommendedTrips, friendsOveriew, 
+        currentPage: "myProfile", // login, register, myProfile, recommendedTrips, friendsOverview, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripView, feedView, footerView
-        loggedInUser: null,
+        loggedInUser: {
+            id: 0,
+            userFullName: "Jørgine Heffalompen",
+            userName: "Jørgine",
+            email: "eksempel@gmail.com",
+            password: "hei123",
+            userPicture: "img/placeholder.jpg",
+            userPhysical: 0,
+            location: "sted",
+            friendsListId: [2, 3, 4],
+            pendingRequests: [5, 6],
+            kilometresWalked: 0,
+            tripsTaken: 0,
+            achievementView: ["10km", "20km"],
+            },
         tripID: 1,
         shownUserID: 0,
         buttons:[{
@@ -47,10 +61,10 @@ const model = {
             {
             id: 0,
             userFullName: "Jørgine Heffalompen",
-            userName: "brukernavn",
+            userName: "Jørgine",
             email: "eksempel@gmail.com",
             password: "hei123",
-            userPicture: "pictures/user11.png",
+            userPicture: "img/placeholder.jpg",
             userPhysical: 0,
             location: "sted",
             friendsListId: [2, 3, 4],
