@@ -33,16 +33,16 @@ function createAccount() {
 
 function clickRegisterButton() {
   createAccount();
-  model.app.currentPage = "myProfile";
+  model.app.currentPage = "login";
   showView();
 }
 
+// Checks if username and password matches, then logs in. 
 function clickLogInButton() {
   if (isUsernameAndPasswordCorrect()) {
     model.app.loggedInUser = getUserProfileFromEmail(
       model.input.loginForm.email
     );
-
     model.app.currentPage = "myProfile";
     showView();
   } else {
@@ -51,13 +51,13 @@ function clickLogInButton() {
 }
 
 function isUsernameAndPasswordCorrect() {
-  //FIXME: Needs to iterate all usernames and passwords
-  if (
-    model.data.userProfile[0].email === model.input.loginForm.email &&
-    model.data.userProfile[0].password === model.input.loginForm.password
-  ) {
-    return true;
-  } else {
-    return false;
+  for (let i = 0; i < model.data.userProfile.length; i++) {
+    if (
+      model.data.userProfile[i].email === model.input.loginForm.email &&
+      model.data.userProfile[i].password === model.input.loginForm.password
+    ) {
+      return true;
+    }
   }
+  return false;
 }

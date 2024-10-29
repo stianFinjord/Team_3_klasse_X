@@ -3,6 +3,7 @@ function renderTripView(){
     ${getNavigationMenu()}
 
     <div class ="app-view">
+    
 
     `;
 }
