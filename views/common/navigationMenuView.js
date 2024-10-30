@@ -6,11 +6,12 @@ function getNavigationMenu() {
     let html = /*HTML*/ `
     <div class="nav-menu">
         <div class=hamburger-icon onclick=toggleMenu(this)>≡</div>
-        <button onclick=setViewRegister()>Registrer deg</button>
-        <button onclick=setViewRegister()>Annen view</button>
-        <button onclick=setViewRegister()>knapp</button>
-    </div>
+            <button onclick=setViewRegister()>Registrer deg</button>
+            <button onclick=setViewLogin()>Logg inn</button>
+            <button onclick=setViewFriendsOverview()>Mine venner</button>
+            <button onclick=setViewMyProfile()>Min profil</button>
+            <button onclick=setViewTrip()>TripView</button>
+        </div>
     `
     return html;
 }
-

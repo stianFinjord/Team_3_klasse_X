@@ -1,7 +1,7 @@
 function renderMyProfileView() {
   //FIXME: Feilmeldinger når man kjører
   document.getElementById("app").innerHTML = /*HTML*/ `
-
+    ${getNavigationMenu()}
 
     <div class ="app-view"> 
       <img src="${model.app.loggedInUser.userPicture}">
@@ -44,4 +44,11 @@ async function fetchData() {
 function logToConsole(response) {
   console.log(response.value);
   return response.value;
+}
+
+async function fetchDataThenDoSomething() {
+    const response = await fetch('https://api.chucknorris.io/jokes/random');
+    const jokeData = await response.json();
+
+    console.log(jokeData.value);
 }

@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-function setViewRegister() {
+function setViewTrip() {
     model.app.currentPage = 'tripView';
     showView();
   }
 
-  
-=======
-// Lag dummy info tur
->>>>>>> Stashed changes

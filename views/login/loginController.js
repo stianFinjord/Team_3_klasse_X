@@ -3,6 +3,11 @@ function setViewRegister() {
   showView();
 }
 
+function setViewLogin() {
+  model.app.currentPage = "login";
+  showView();
+}
+
 // Gets data from model.input.createAccount and pushes new user to model.data
 function createAccount() {
   let createAccount = model.input.createAccount;
@@ -33,8 +38,7 @@ function createAccount() {
 
 function clickRegisterButton() {
   createAccount();
-  model.app.currentPage = "login";
-  showView();
+  setViewLogin();
 }
 
 // Checks if username and password matches, then logs in. 
@@ -43,8 +47,7 @@ function clickLogInButton() {
     model.app.loggedInUser = getUserProfileFromEmail(
       model.input.loginForm.email
     );
-    model.app.currentPage = "myProfile";
-    showView();
+    setViewMyProfile();
   } else {
     alert("Passord eller brukernavn er feil!");
   }
@@ -60,4 +63,9 @@ function isUsernameAndPasswordCorrect() {
     }
   }
   return false;
+}
+
+function setViewMyProfile() {
+  model.app.currentPage = "myProfile";
+  showView();
 }
