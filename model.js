@@ -7,7 +7,7 @@
 const model = {
     app: {
         // currentPage endres avhengig av hvilken side som skal vises
-        currentPage: "login", // login, register, myProfile, recommendedTrips, friendsOverview, 
+        currentPage: "tripOverview", // login, register, myProfile, recommendedTrips, friendsOverview, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripView, feedView, footerView
         loggedInUser: {
             id: 0,
@@ -24,7 +24,7 @@ const model = {
             tripsTaken: 0,
             achievementView: ["10km", "20km"],
             },
-        tripID: 1,
+        tripId: 0,
         shownUserID: 0,
         buttons:[{
                 functionName: 'myPage',
@@ -167,9 +167,9 @@ const model = {
         ],
         tripData: [
             {
-                tripID: 1,
+                id: 1,
                 tripName: "Hardangervidda Rundtur",
-                tripPicture: "pictures/trip/1.png",
+                tripPicture: "img/trip/1.png",
                 tripInfo: "Vakker fjellplatå-kryssing med storslått utsikt",
                 tripKM: 42,
                 tripHeightChart: 1200,
@@ -177,9 +177,9 @@ const model = {
                 tripRating: 5
             },
             {
-                tripID: 2,
-                tripName: "Kyststi Vandring",
-                tripPicture: "pictures/trip/2.png",
+                id: 2,
+                tripName: "Kyst Vandring",
+                tripPicture: "img/trip/2.png",
                 tripInfo: "Scenisk kystrute med fjordutsikt",
                 tripKM: 15,
                 tripHeightChart: 300,
@@ -187,9 +187,9 @@ const model = {
                 tripRating: 4
             },
             {
-                tripID: 3,
+                id: 3,
                 tripName: "Skogsløyfe",
-                tripPicture: "pictures/trip/3.png",
+                tripPicture: "img/trip/3.png",
                 tripInfo: "Rundtur i tett granskog",
                 tripKM: 8,
                 tripHeightChart: 150,
@@ -197,9 +197,9 @@ const model = {
                 tripRating: 3
             },
             {
-                tripID: 4,
+                id: 4,
                 tripName: "Fjelltopp Utfordringen",
-                tripPicture: "pictures/trip/4.png",
+                tripPicture: "img/trip/4.png",
                 tripInfo: "Bratt klatring til fjelltoppen",
                 tripKM: 12,
                 tripHeightChart: 1800,
@@ -207,9 +207,9 @@ const model = {
                 tripRating: 5
             },
             {
-                tripID: 5,
+                id: 5,
                 tripName: "Vannet Rundt",
-                tripPicture: "pictures/trip/5.png",
+                tripPicture: "img/trip/5.png",
                 tripInfo: "Lett tur rundt fjellvann",
                 tripKM: 6,
                 tripHeightChart: 50,
@@ -217,9 +217,9 @@ const model = {
                 tripRating: 4
             },
             {
-                tripID: 6,
+                id: 6,
                 tripName: "Dalføre Traversering",
-                tripPicture: "pictures/trip/6.png",
+                tripPicture: "img/trip/6.png",
                 tripInfo: "Lang kryssing gjennom dalen",
                 tripKM: 28,
                 tripHeightChart: 600,
@@ -227,9 +227,9 @@ const model = {
                 tripRating: 4
             },
             {
-                tripID: 7,
+                id: 7,
                 tripName: "Eggeryggen",
-                tripPicture: "pictures/trip/7.png",
+                tripPicture: "img/trip/7.png",
                 tripInfo: "Eksponert fjellrygg-traversering",
                 tripKM: 16,
                 tripHeightChart: 900,

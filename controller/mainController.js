@@ -12,5 +12,8 @@ function showView() {
     renderTripView();
   } else if (model.app.currentPage == "friendsOverview") {
     renderFriendsOverview();
+  }else if (model.app.currentPage == "tripOverview"){
+    renderTripOverview();
   }
+  
 }
