@@ -1,12 +1,12 @@
-function renderTripView(){
-    const trip = getTripById(model.app.data);
-    document.getElementById("app").innerHTML = /*HTML*/ `
+function renderTripView() {
+  const trip = getTripById(model.app.data);
+  document.getElementById("app").innerHTML = /*HTML*/ `
     ${getNavigationMenu()}
 
     <div class="app-view">
         <div class="tripContainer">
             <div class="tripPicBox">
-                <-- <img src="${trip.tripPicture}" alt="${trip.tripName}"> !-->
+                <img src="${trip.tripPicture}" alt="${trip.tripName}">
                 
             </div>
 
