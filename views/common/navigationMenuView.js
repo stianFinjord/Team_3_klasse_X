@@ -11,6 +11,7 @@ function getNavigationMenu() {
             <button onclick=setViewFriendsOverview()>Mine venner</button>
             <button onclick=setViewMyProfile()>Min profil</button>
             <button onclick=setViewTrip()>TripView</button>
+            <button onclick=setViewTripOverview()>Trip Overview</button>
         </div>
     `
     return html;

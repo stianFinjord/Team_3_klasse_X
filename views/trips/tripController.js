@@ -3,3 +3,7 @@ function setViewTrip() {
     showView();
   }
 
+function setViewTripOverview() {
+  model.app.currentPage = 'tripOverview';
+  showView();
+}
