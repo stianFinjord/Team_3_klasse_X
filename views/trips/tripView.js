@@ -1,5 +1,5 @@
 function renderTripView() {
-  const trip = getTripById(model.app.data);
+  const trip = getTripById(model.app.tripId);
   document.getElementById("app").innerHTML = /*HTML*/ `
     ${getNavigationMenu()}
 
