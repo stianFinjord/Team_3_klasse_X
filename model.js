@@ -6,34 +6,19 @@
 
 const model = {
     app: {
-        // currentPage endres avhengig av hvilken side som skal vises
-        currentPage: "tripOverview", // login, register, myProfile, recommendedTrips, friendsOverview, 
+        currentPage: "friendsProfile", // login, register, myProfile, recommendedTrips, friendsOverview, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripView, feedView, footerView
-        loggedInUser: {
-            id: 0,
-            userFullName: "Jørgine Heffalompen",
-            userName: "Jørgine",
-            email: "eksempel@gmail.com",
-            password: "hei123",
-            userPicture: "img/placeholder.jpg",
-            userPhysical: 0,
-            location: "sted",
-            friendsListId: [2, 3, 4],
-            pendingRequests: [5, 6],
-            kilometresWalked: 0,
-            tripsTaken: 0,
-            achievementView: ["10km", "20km"],
-            },
+        loggedInUser: null,
         tripId: 0,
-        shownUserID: 0,
-        buttons:[{
+        shownUserID: 5,
+        buttons:[{ // Currently not in use
                 functionName: 'myPage',
                 buttonName: 'Min Side',
             },
             {
                 functionName: 'hikeSugestion',
                 buttonName: 'TurForslag',
-            }
+            },
         ],
         
     }, 
@@ -48,15 +33,18 @@ const model = {
             email: null,
             password: null,
             repeatPassword: null,
-        },
+        }, 
         searchField:{
             searchText: null,
         },
-        userPhysical:{} 
+        myProfile:{
+            userPicture: null,
+            userPhysical: 0,
+        },
+        
     },
 
     data: {
-    
         userProfile: [ 
             {
                 id: 0,
@@ -286,3 +274,6 @@ const model = {
         },
     },
 }
+
+//Test purposes, setter default user til Jørgine
+model.app.loggedInUser = model.data.userProfile[0];

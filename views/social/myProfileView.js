@@ -1,5 +1,4 @@
 function renderMyProfileView() {
-  //FIXME: Feilmeldinger når man kjører
   document.getElementById("app").innerHTML = /*HTML*/ `
     ${getNavigationMenu()}
 
@@ -9,7 +8,7 @@ function renderMyProfileView() {
         Min fysiske form:
         <br>
         <br>
-        <select>
+        <select onchange="model.input.myProfile.userPhysical = this.value">
             <option value=1>1</option>
             <option value=2>2</option>
             <option value=3>3</option>
@@ -20,9 +19,8 @@ function renderMyProfileView() {
         <button onclick="setViewFriendsOverview()">Mine Venner</button>
         <br>
         <div>${getAchievementView()}</div>
-        <div>${getUserProfileFromEmail("eksempel@gmail.com").userPhysical}</div>
         <br>
-        <button onchange="model.input. = this.value" class="input" placeholder="Lagre"> Lagre endringer
+        <button onclick="saveMyProfileChanges()" >Lagre endringer</button>
     </div>
 
     `;
@@ -33,6 +31,59 @@ function getAchievementView() {
     <div>Dette er achievements</div>
     `;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function createAccount() {
+//   let createAccount = model.input.createAccount;
+
+//   let newAccount = {
+//     id: model.data.userProfile.length + 1, //FIXME: Does not guarantee unique ID
+//     userFullName: "",
+//     userName: createAccount.userName,
+//     email: createAccount.email,
+//     password: createAccount.password,
+//     userPicture: "",
+//     userPhysical: 0,
+//     location: "",
+//     friendsListId: [],
+//     pendingRequests: [],
+//     kilometresWalked: 0,
+//     tripsTaken: 0,
+//     achievementView: [],
+//   };
+
+//   model.data.userProfile.push(newAccount);
+
+
+
+
+
+
+
+
+
+
 // Koden under er bare for test purposes, pls ignore
 
 async function fetchData() {
@@ -52,3 +103,5 @@ async function fetchDataThenDoSomething() {
 
     console.log(jokeData.value);
 }
+
+

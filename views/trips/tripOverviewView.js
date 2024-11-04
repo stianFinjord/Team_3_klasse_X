@@ -25,20 +25,9 @@ function tripCard() {
   return card;
 }
 
-function goToTripView(inputId){ //Hva er stian? Hvilken verdi kan det ha? (Ifølge hvordan vi har brukt den over)
+function goToTripView(inputId){ 
     model.app.tripId = inputId;
     model.app.currentPage = "tripView";
     showView();
 }
 
-
-/* let selectedTrip = "";
-for(let i = 0; i < model.data.tripData.length; i++){
-  selectedTrip += `
-  
-  ${model.data.tripData.id[i]}
-  `
-} */
-//return selectedTrip;
-
-// Vi må sette trip id til 3 (feks)
