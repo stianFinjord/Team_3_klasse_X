@@ -1,14 +1,13 @@
 function renderTripView() {
   const trip = getTripById(model.app.tripId);
+
   document.getElementById("app").innerHTML = /*HTML*/ `
     ${getNavigationMenu()}
 
     <div class="app-view">
-        <div class="tripContainer">
-            <div class="tripPicBox">
-                <img src="${trip.tripPicture}" alt="${trip.tripName}">
+        <div class="trip-container">
+            <img src="${trip.tripPicture}" alt="${trip.tripName}">
                 
-            </div>
 
             <div class="content-row">
                 <div class="info-box">
@@ -20,10 +19,8 @@ function renderTripView() {
                     <p>Vurdering: ${trip.tripRating}</p>
                 </div>
                 
-                <div class="right-coloumn">
-                    <div class="kartBox">
+                <div class="map-container">
                     <img src="img/trip/2map.png">
-                    </div>
 
                     <div class="inviteBox">
                         <button onclick="inviteFriendToTrip(${trip.id})">
