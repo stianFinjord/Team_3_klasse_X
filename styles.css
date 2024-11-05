@@ -1,11 +1,18 @@
 
 
+/* Removes default settings */
+* {
+    margin: 0;
+}
+
+p {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
 /* App container */
 #app {
     height: 100vh;
     background-color: #dce7ec; /* Stone Gray - main background color */
-    
-    
 }
 
 .app-view {
@@ -41,7 +48,7 @@ button:active {
 }
 
 
-/* Side menu */
+/* Nav menu */
 
 .side-menu {
     background-color: blue;
@@ -55,15 +62,17 @@ button:active {
 
 .hamburger-icon {
     font-size: 5em;
-    padding: 0px;
     cursor: pointer;
     align-self: self-end;
+    outline: none;
+    user-select: none;
 }
 
 
 .nav-menu {
-    max-height: 70px;
-    transition: 300ms ease;
+    max-height: 5em;
+    padding: 1em;
+    transition: 500ms ease;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -82,35 +91,51 @@ button:active {
 }
 
 .nav-menu.open {
-    max-height: 400px;
+    max-height: 40em;
 }
 
 /* Trip View */
-.tripPicBox {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
+.trip-container {
+}
 
-    
- }
-.tripPicBox img {
-    width: 100%;
-    height: 100%;
+.trip-container img {
     object-fit: cover;
- }
+    width: 100%;
+    height: 25vh;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+
  .content-row {
-    display: flex;
+    display: grid;
     gap: 20px;
     flex-wrap: wrap; 
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
  }
+
+ .info-box {
+    margin: 5px;
+    
+ }
+
+ .info-box p {
+    margin-top: 0.5em;
+ }
+
+ .map-container {
+ }
+
+ /* Trip Overview */
  
+
+/*  Brukes denne?
  .trip-grid {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 20px;
-}
+} */
+
 
 .trip-card {
     aspect-ratio: 16/9;

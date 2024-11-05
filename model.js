@@ -6,10 +6,10 @@
 
 const model = {
     app: {
-        currentPage: "friendsProfile", // login, register, myProfile, recommendedTrips, friendsOverview, 
+        currentPage: "tripView", // login, register, myProfile, recommendedTrips, friendsOverview, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripView, feedView, footerView
         loggedInUser: null,
-        tripId: 0,
+        tripId: 2,
         shownUserID: 5,
         buttons:[{ // Currently not in use
                 functionName: 'myPage',
