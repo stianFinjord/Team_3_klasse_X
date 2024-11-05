@@ -37,8 +37,12 @@ function createAccount() {
 }
 
 function clickRegisterButton() {
-  createAccount();
-  setViewLogin();
+  if(model.input.createAccount.password === model.input.createAccount.repeatPassword) {
+      createAccount();
+      setViewLogin();
+  } else {
+      alert("Passordene er ikke like!");
+  }
 }
 
 // Checks if username and password matches, then logs in. 
@@ -62,10 +66,11 @@ function isUsernameAndPasswordCorrect() {
       return true;
     }
   }
-  return false;
+  return false; //*sjekk tirsdag
 }
 
 function setViewMyProfile() {
   model.app.currentPage = "myProfile";
   showView();
 }
+
