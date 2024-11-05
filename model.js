@@ -6,7 +6,7 @@
 
 const model = {
     app: {
-        currentPage: "tripView", // login, register, myProfile, recommendedTrips, friendsOverview, 
+        currentPage: "friendsOverview", // login, register, myProfile, recommendedTrips, friendsOverview, 
                                 //tripOverview, findAFriend, friendsProfile, chatOverview, tripView, feedView, footerView
         loggedInUser: null,
         tripId: 2,

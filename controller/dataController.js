@@ -16,4 +16,4 @@ async function loadGPXFile() {
     console.log(trackPoints);
 }
 
-loadGPXFile();
+//loadGPXFile();

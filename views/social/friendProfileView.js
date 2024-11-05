@@ -6,7 +6,7 @@ function renderFriendProfileView() {
     ${getNavigationMenu()}
     
     <div class="app-view">
-    <h2>${user.userName}</h2>
+    <h2>${user.userFullName}</h2>
         <img src="${user.userPicture}">
         <br>
         ${friendProfileHtml()}

@@ -1,0 +1,11 @@
+.friends-profile-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5em;
+    margin: 0.5em;
+    text-align: center;
+}
+
+.friends-profile-container img {
+    width: 100%;
+}

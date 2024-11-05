@@ -8,7 +8,10 @@ function setViewMyProfile() {
   showView();
 }
 
-function setViewFriendProfileView(){
+function setViewFriendProfileView(profileId = null){
+  if(profileId) {
+    model.app.shownUserID = profileId;
+  }
   model.app.currentPage = "friendsProfile";
   showView();
 }

@@ -66,7 +66,7 @@ function isUsernameAndPasswordCorrect() {
       return true;
     }
   }
-  return false; //*sjekk tirsdag
+  return false; 
 }
 
 function setViewMyProfile() {
