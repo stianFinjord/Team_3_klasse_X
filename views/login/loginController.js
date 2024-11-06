@@ -37,15 +37,30 @@ function createAccount() {
 }
 
 function clickRegisterButton() {
-  if(model.input.createAccount.password === model.input.createAccount.repeatPassword) {
-      createAccount();
-      setViewLogin();
+  if (
+    model.input.createAccount.password ===
+    model.input.createAccount.repeatPassword
+  ) { 
+    let emailIsRegistered = false;
+    for (let i = 0; i < model.data.userProfile.length; i++) {
+      if (model.data.userProfile[i].email === model.input.createAccount.email) {
+        emailIsRegistered = true;
+      }
+    }
+ 
+    if (emailIsRegistered) {
+      alert("Denne eposten er allerede registrert");
+      return;
+    }
+ 
+    createAccount();
+    setViewLogin();
   } else {
-      alert("Passordene er ikke like!");
+    alert("Passordene er ikke like!");
   }
-}
+ }
 
-// Checks if username and password matches, then logs in. 
+
 function clickLogInButton() {
   if (isUsernameAndPasswordCorrect()) {
     model.app.loggedInUser = getUserProfileFromEmail(
@@ -66,11 +81,10 @@ function isUsernameAndPasswordCorrect() {
       return true;
     }
   }
-  return false; 
+  return false;
 }
 
 function setViewMyProfile() {
   model.app.currentPage = "myProfile";
   showView();
 }
-

@@ -1,14 +1,14 @@
 function renderFriendProfileView() {
-  let id = model.app.shownUserID; // Type integer
-  let user = getUserProfileFromId(id); // Type userProfile{}
+  let id = model.app.shownUserID; 
+  let user = getUserProfileFromId(id); 
 
   document.getElementById("app").innerHTML = /*HTML*/ `
     ${getNavigationMenu()}
     
     <div class="app-view">
-    <h2>${user.userFullName}</h2>
+    <div class="info-box">
         <img src="${user.userPicture}">
-        <br>
+        <h2>${user.userFullName}</h2>
         ${friendProfileHtml()}
     </div>
     `;
@@ -19,13 +19,13 @@ function friendProfileHtml() {
     return /*HTML*/ `<button>Inviter til tur(placeholder)</button>`;
   } else if (isRequestsPendingWithShownProfile()) {
     return /*HTML*/ `
-        <div>Brukeren har sendt deg en venneforespørsel. Godta?</div><br>
-        <button>Ja(placeholder)</button><br>
-        <button>Nei(placeholder)</button>
+        <div>Brukeren har sendt deg en venneforespørsel. Godta?</div>
+        <button onclick="acceptFriendRequest()">Ja</button>
+        <button onclick="removeFriendRequest()">Nei</button>
     `;
   } else {
     return /*HTML*/ `
-        <button>Send venneforespørsel(placeholder)</button>`;
+        <button onclick="sendFriendRequestToShownUser()">Send venneforespørsel</button>`;
     }
 }
 

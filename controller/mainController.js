@@ -11,11 +11,12 @@ function showView() {
   } else if (model.app.currentPage == "tripView") {
     renderTripView();
   } else if (model.app.currentPage == "friendsOverview") {
-    renderFriendsOverview();
-  }else if (model.app.currentPage == "tripOverview"){
+    renderFriendsOverviewView();
+  } else if (model.app.currentPage == "tripOverview"){
     renderTripOverview();
-  }
-  else if (model.app.currentPage == "friendsProfile"){
+  } else if (model.app.currentPage == "friendsProfile"){
     renderFriendProfileView();
+  } else if (model.app.currentPage == "otherProfiles") {
+    renderOtherProfilesView();
   }
 }

@@ -8,11 +8,16 @@ function setViewMyProfile() {
   showView();
 }
 
-function setViewFriendProfileView(profileId = null){
-  if(profileId) {
+function setViewFriendProfile(profileId = null) {
+  if (profileId) {
     model.app.shownUserID = profileId;
   }
   model.app.currentPage = "friendsProfile";
+  showView();
+}
+
+function setViewOtherProfiles() {
+  model.app.currentPage = "otherProfiles";
   showView();
 }
 
@@ -39,4 +44,52 @@ function isRequestsPendingWithShownProfile() {
     }
   }
   return false;
+}
+
+function sendFriendRequestToShownUser() {
+  const shownUser = model.data.userProfile[model.app.shownUserID];
+  shownUser.pendingRequests.push(model.app.loggedInUser.id);
+}
+
+function acceptFriendRequest() {
+  const shownUser = model.data.userProfile[model.app.shownUserID];
+  shownUser.friendsListId.push(model.app.loggedInUser.id);
+  model.app.loggedInUser.friendsListId.push(model.app.shownUserID);
+
+  removeFriendRequest();
+  showView();
+}
+
+function removeFriendRequest() {
+  // Remove pending invite
+  const userId = model.app.shownUserID;
+  // Needs to remove a specific ID from the array.
+  model.app.loggedInUser.pendingRequests = removeElementFromArray(
+    model.app.loggedInUser.pendingRequests,
+    userId
+  );
+  showView();
+}
+
+// Returns idList of all users who aren't friends of loggedInUser
+function getNotFriendsProfiles() {
+  //Skjønner ikke helt hvorfor denne funker men det funker. Needs refactoring
+  const friendsIdList = model.app.loggedInUser.friendsListId;
+  const userIdList = model.data.userProfile.map((profile) => profile.id);
+  const difference = userIdList.filter(
+    (id) => !friendsIdList.some((friendsId) => friendsId == id)
+  );
+  return difference;
+}
+
+// Returns new array without the specified element
+function removeElementFromArray(array, element) {
+  //Denne hadde også trengt litt refactoring ass
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] != element) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
 }

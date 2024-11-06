@@ -1,18 +1,17 @@
-function renderFriendsOverview(){
+function renderFriendsOverviewView(){
     document.getElementById("app").innerHTML = /*HTML*/`
-    ${getNavigationMenu()}
-    <div class="app-view">
-        <div class="friends-profile-container">
-            ${drawFriendsOverview(model.app.loggedInUser.friendsListId)}
+        ${getNavigationMenu()}
+        <div class="app-view">
+        <div class="site-header"><h1>Mine Venner</h1>
+            <button onclick="setViewOtherProfiles()">Finn nye venner</button>
+            <div class="friends-profile-container">
+                ${drawFriendsOverview(model.app.loggedInUser.friendsListId)}
+            </div>
         </div>
-    </div>
     `
 }
 
 //Kan bruke map() for å returnere mange arrays med html
-
-// Må lage noe html
-// Må ha html for vennene til loggedInUser
 
 function drawFriendsOverview(list){
     let friendId = 0;
@@ -23,8 +22,8 @@ function drawFriendsOverview(list){
         user = getUserProfileFromId(friendId);
         
         html+= /*HTML*/ `
-        <div onclick="setViewFriendProfileView(${friendId})" 
-            class="info-box">
+        <div onclick="setViewFriendProfile(${friendId})" 
+            class="info-box friends-profile-card">
             <img src="${user.userPicture}">
             <h2>${user.userFullName}</h2>
         </div>
@@ -32,10 +31,3 @@ function drawFriendsOverview(list){
     }
     return html;
 };
-    
-
-
-// Ignorer denne foreløpig
-function buildSingleFriend(userId) {
-    return ("This is the user: " + userId);
-}

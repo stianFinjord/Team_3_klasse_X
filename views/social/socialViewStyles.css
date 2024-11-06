@@ -4,8 +4,19 @@
     gap: 0.5em;
     margin: 0.5em;
     text-align: center;
+    overflow: hidden;
 }
 
 .friends-profile-container img {
     width: 100%;
+}
+
+.friends-profile-card {
+    overflow: hidden;
+}
+
+select {
+    width: 50%;
+    align-self: center;
+    padding: 0.5em;
 }

@@ -3,6 +3,7 @@ function renderRegisterUserView() {
     ${getNavigationMenu()}
     <div class ="app-view">
         <h2>Registrer deg</h2>
+        <br>
         <input type="text" onchange="model.input.createAccount.userName = this.value" class="input" placeholder="Brukernavn"><br>
         <input type="email" onchange="model.input.createAccount.email = this.value" class="input" placeholder="E-post"><br>
         <input type="password" onchange="model.input.createAccount.password = this.value" class="input" placeholder="Passord"><br>

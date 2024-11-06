@@ -8,11 +8,12 @@ function getNavigationMenu() {
         <div class=hamburger-icon onclick=toggleMenu(this)>≡</div>
             <button onclick=setViewRegister()>Registrer deg</button>
             <button onclick=setViewLogin()>Logg inn</button>
-            <button onclick=setViewFriendsOverview()>Mine venner</button>
             <button onclick=setViewMyProfile()>Min profil</button>
             <button onclick=setViewTrip()>TripView</button>
             <button onclick=setViewTripOverview()>Trip Overview</button>
-            <button onclick=setViewFriendProfileView()>Min venn</button>
+            <button onclick=setViewFriendProfile()>En venn</button>
+            <button onclick=setViewFriendsOverview()>Mine venner</button>
+            <button onclick=setViewOtherProfiles()>Finn venner</button>
         </div>
     `
     return html;
