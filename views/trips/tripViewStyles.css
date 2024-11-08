@@ -1,7 +1,4 @@
 /* Trip View */
-.trip-container {
-}
-
 .trip-container img {
     object-fit: cover;
     width: 100%;
@@ -23,20 +20,20 @@
  }
 
  /* Trip Overview */ 
- /* Kortene burde heller skalere etter hva brukeren ser, per nå har de fast størrelse, 
- slik at det blir whitespace på høyresiden som kunne blitt brukt på kortene heller */
+ 
 .trip-grid-container {
-    width: 100vw;
+    width: 98vw;
     display: flex;
     flex-wrap: wrap;
 }
 
 .trip-card {
     width: 10em;
+    flex-grow: 1; /* Denne gjør at de fyller avaliable space, ganske sick tbh */
     margin: 0.3em;
     overflow: hidden;
 }
 
-.trip-card img {
+/*.trip-card img {
     width: 100%;
-}
+}*/

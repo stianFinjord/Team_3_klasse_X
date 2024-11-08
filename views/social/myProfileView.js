@@ -15,7 +15,7 @@ function renderMyProfileView() {
               <option value=5>5</option>
           </select>
           <button onclick="setViewFriendsOverview()">Mine Venner</button>
-          <div>${getAchievementView()}</div>
+          ${getAchievementView()}
           <button onclick="saveMyProfileChanges()" >Lagre endringer</button>
       </div>
 
@@ -24,7 +24,7 @@ function renderMyProfileView() {
 
 function getAchievementView() {
   return /*HTML*/ `
-    <div>Dette er achievements</div>
+    <p>Dette er achievements</p>
     `;
 }
 

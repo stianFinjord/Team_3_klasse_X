@@ -3,7 +3,8 @@ function renderTripOverview() {
     ${getNavigationMenu()}
     
     <div class="app-view">
-      <h2 style="margin-bottom: 2em">Her er våre anbefalinger for deg!</h2>
+      <h2 class="header">Her er våre turanbefalinger for deg!</h2>
+      ${buildSearchBar()}
       <div class="trip-grid-container">
         ${tripCard()}
       </div>
@@ -27,9 +28,4 @@ function tripCard() {
   return card;
 }
 
-function goToTripView(inputId){ 
-    model.app.tripId = inputId;
-    model.app.currentPage = "tripView";
-    showView();
-}
 

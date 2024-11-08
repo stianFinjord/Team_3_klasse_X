@@ -13,3 +13,4 @@ function goToTripView(inputId){
   model.app.currentPage = "tripView";
   showView();
 }
+
