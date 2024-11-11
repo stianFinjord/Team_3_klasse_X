@@ -24,3 +24,8 @@ select {
 .achievements img{
     height: 50px;
 }
+
+.achievements {
+    display: flex;
+    gap: 1em;
+}

@@ -13,10 +13,10 @@ function renderMyProfileView() {
               <option value=3>3</option>
               <option value=4>4</option>
               <option value=5>5</option>
-          </select>
+              </select>
+          <button onclick="saveMyProfileChanges()" >Lagre endringer</button>
           <button onclick="setViewFriendsOverview()">Mine Venner</button>
           ${getAchievementView()}
-          <button onclick="saveMyProfileChanges()" >Lagre endringer</button>
       </div>
 
     `;
@@ -24,10 +24,24 @@ function renderMyProfileView() {
 
 function getAchievementView() {
   return /*HTML*/ `
+  <p>Mine achievements</p>
   <div class=achievements>
-    <p>My achievements</p>
-    <img src="../img/achievement/Achievement_badge_1.png">
-    <img src="../img/placeholder.jpg">
+    <div>
+      <img src="../img/achievement/Achievement_badge_1.png">
+      <p>10km</p>
+    </div>
+    <div>
+      <img src="../img/achievement/Achievement_badge_2.png">
+      <p>25km</p>
+    </div>
+    <div>
+      <img src="../img/achievement/Achievement_badge_3.png">
+      <p>Maraton</p>
+    </div>
+    <div>
+      <img src="../img/achievement/Achievement_badge_4.png">
+      <p>5 turer</p>
+    </div>
   </div>
     `;
 }
