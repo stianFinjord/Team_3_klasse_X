@@ -6,10 +6,10 @@ function renderFriendProfileView() {
     ${getNavigationMenu()}
     
     <div class="app-view">
-      <div class="info-box">
+      <div class="info-box friend-view">
         <img src="${user.userPicture}">
         <h2>${user.userFullName}</h2>
-        ${friendProfileHtml()}
+        <div>${friendProfileHtml()}</div>
       </div>
     </div>
     `;
@@ -20,9 +20,13 @@ function friendProfileHtml() {
     return /*HTML*/ `<button>Inviter til tur(placeholder)</button>`;
   } else if (isRequestsPendingWithShownProfile()) {
     return /*HTML*/ `
-        <div>Brukeren har sendt deg en venneforespørsel. Godta?</div>
+        <p>Brukeren har sendt deg en venneforespørsel. Godta?</p>
         <button onclick="acceptFriendRequest()">Ja</button>
         <button onclick="removeFriendRequest()">Nei</button>
+    `;
+  } else if(isFriendRequestSent()) {
+    return /*HTML*/ `
+        <p>Venneforespørsel sendt, venter på svar</p>
     `;
   } else {
     return /*HTML*/ `

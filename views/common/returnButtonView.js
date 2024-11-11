@@ -1,10 +1,6 @@
 function getReturnButton(){
     let html = /*HTML*/ `
-    <div class="return-button">
-        <a class="return">&laquo; Tilbake</a>
-        <a class="return round">&#8249;</a>
-    
-    </div>
+    <div class="return-button">Tilbake</div>
 `
 return html;
 }

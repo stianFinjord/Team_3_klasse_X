@@ -15,6 +15,11 @@
     overflow: hidden;
 }
 
+.friend-view img {
+    width: 20em;
+    align-self: center;
+}
+
 select {
     width: 50%;
     align-self: center;

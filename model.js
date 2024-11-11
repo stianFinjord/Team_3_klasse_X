@@ -93,9 +93,9 @@ const model = {
             },
             {
                 id: 3,
-                userFullName: "Maria Larsen",
-                userName: "MariaL",
-                email: "maria.l@gmail.com",
+                userFullName: "Kevin Tunge",
+                userName: "predator",
+                email: "kevin.tunge@gmail.com",
                 password: "hiking789",
                 userPicture: "img/placeholder.jpg",
                 userPhysical: 5,

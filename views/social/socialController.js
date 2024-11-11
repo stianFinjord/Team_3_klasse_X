@@ -46,10 +46,11 @@ function isRequestsPendingWithShownProfile() {
   return false;
 }
 
-function isfriendRequestSent() {
+function isFriendRequestSent() {
   let me = model.app.loggedInUser;
   let shownUser = getUserProfileFromId(model.app.shownUserID);
-  if (shownUser.pendingRequests.contains(me.id)) {
+  console.log(shownUser);
+  if (shownUser.pendingRequests.includes(me.id)) {
     return true;
   }
   return false;
@@ -59,6 +60,7 @@ function isfriendRequestSent() {
 function sendFriendRequestToShownUser() {
   const shownUser = model.data.userProfile[model.app.shownUserID];
   shownUser.pendingRequests.push(model.app.loggedInUser.id);
+  showView();
 }
 
 function acceptFriendRequest() {
