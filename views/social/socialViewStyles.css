@@ -9,6 +9,8 @@
 
 .friends-profile-container img {
     width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
 }
 
 .friends-profile-card {
@@ -17,7 +19,9 @@
 
 .friend-view img {
     width: 20em;
+    aspect-ratio: 1;
     align-self: center;
+    object-fit: cover;
 }
 
 select {

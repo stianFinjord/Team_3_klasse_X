@@ -8,12 +8,15 @@
     box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
     background-color: hsl(0, 0%, 92%);
     transition: 300ms ease;
+    position: absolute;
     cursor: pointer;
-    translate: 4px -80px;
-    position: relative;
+    translate: 0.4em 2em;
+    
+    
 }
 
 .return-button:hover {
     background-color: hsl(0, 0%, 85%);
     border-color: hsl(0, 0%, 75%);
 }
+

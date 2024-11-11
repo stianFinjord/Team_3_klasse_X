@@ -1,7 +1,7 @@
 function renderTripOverview() {
   document.getElementById("app").innerHTML = /*HTML*/ `
+    ${getReturnButton()}
     ${getNavigationMenu()}
-    
     <div class="app-view">
       <h2 class="header">Her er våre turanbefalinger for deg!</h2>
       ${buildSearchBar()}

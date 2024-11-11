@@ -1,5 +1,6 @@
 function renderRegisterUserView() {
   document.getElementById("app").innerHTML = /*HTML*/ `
+    ${getReturnButton()}
     ${getNavigationMenu()}
     <div class ="app-view">
         <h2 class="header">Registrer deg</h2>

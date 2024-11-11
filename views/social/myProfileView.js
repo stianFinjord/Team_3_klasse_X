@@ -1,7 +1,7 @@
 function renderMyProfileView() {
   document.getElementById("app").innerHTML = /*HTML*/ `
+    ${getReturnButton()}
     ${getNavigationMenu()}
-
     <div class ="app-view">
       <div class="info-box">
         <img src="${model.app.loggedInUser.userPicture}">

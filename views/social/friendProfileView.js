@@ -3,8 +3,8 @@ function renderFriendProfileView() {
   let user = getUserProfileFromId(id); 
 
   document.getElementById("app").innerHTML = /*HTML*/ `
+    ${getReturnButton()}
     ${getNavigationMenu()}
-    
     <div class="app-view">
       <div class="info-box friend-view">
         <img src="${user.userPicture}">

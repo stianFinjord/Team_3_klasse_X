@@ -2,8 +2,8 @@ function renderTripView() {
   const trip = getTripById(model.app.tripId);
 
   document.getElementById("app").innerHTML = /*HTML*/ `
+    ${getReturnButton()}
     ${getNavigationMenu()}
-
     <div class="app-view">
         <div class="trip-container">
             <img src="${trip.tripPicture}" alt="${trip.tripName}">

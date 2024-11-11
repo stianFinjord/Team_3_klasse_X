@@ -1,5 +1,6 @@
 function renderOtherProfilesView() {
     document.getElementById("app").innerHTML = /*HTML*/`
+        ${getReturnButton()}
         ${getNavigationMenu()}
         <div class="app-view">
             <h1 class="site-header">Andre profiler</h1>

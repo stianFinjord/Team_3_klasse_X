@@ -1,7 +1,6 @@
 function renderLoginView(){
     document.getElementById("app").innerHTML = /*HTML*/ `
     ${getNavigationMenu()}
-
     <div class="app-view">
         <h2 class="header">Innlogging</h2>
         <input type="text" onchange="model.input.loginForm.email = this.value" placeholder="Email">

@@ -1,7 +1,7 @@
 function renderFriendsOverviewView(){
     document.getElementById("app").innerHTML = /*HTML*/`
-        ${getNavigationMenu()}
         ${getReturnButton()}
+        ${getNavigationMenu()}
         <div class="app-view">
             <h1 class=site-header>Mine Venner</h1>
                 ${buildSearchBar()}

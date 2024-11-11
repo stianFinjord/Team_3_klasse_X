@@ -1,9 +1,12 @@
 function setViewFriendsOverview() {
+  
+  model.app.previousPage = model.app.currentPage;
   model.app.currentPage = "friendsOverview";
   showView();
 }
 
 function setViewMyProfile() {
+  model.app.previousPage = model.app.currentPage;
   model.app.currentPage = "myProfile";
   showView();
 }
@@ -12,11 +15,13 @@ function setViewFriendProfile(profileId = null) {
   if (profileId) {
     model.app.shownUserID = profileId;
   }
+  model.app.previousPage = model.app.currentPage;
   model.app.currentPage = "friendsProfile";
   showView();
 }
 
 function setViewOtherProfiles() {
+  model.app.previousPage = model.app.currentPage;
   model.app.currentPage = "otherProfiles";
   showView();
 }
