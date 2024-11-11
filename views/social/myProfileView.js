@@ -24,23 +24,13 @@ function renderMyProfileView() {
 
 function getAchievementView() {
   return /*HTML*/ `
-    <p>Dette er achievements</p>
+  <div class=achievements>
+    <p>My achievements</p>
+    <img src="../img/achievement/Achievement_badge_1.png">
+    <img src="../img/placeholder.jpg">
+  </div>
     `;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

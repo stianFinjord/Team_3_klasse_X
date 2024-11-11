@@ -20,3 +20,7 @@ select {
     align-self: center;
     padding: 0.5em;
 }
+
+.achievements img{
+    height: 50px;
+}

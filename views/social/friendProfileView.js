@@ -30,3 +30,6 @@ function friendProfileHtml() {
     }
 }
 
+function friendRequestSent() {
+  
+}

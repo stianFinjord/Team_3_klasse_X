@@ -90,6 +90,8 @@ input {
 .search {
     width: 5em;
     transition: 300ms ease;
+    border-radius: 50vh;
+    border: solid black 2px;
 }
 
 .search:focus {
@@ -199,4 +201,5 @@ button:active {
 }
 
 */
+
 
