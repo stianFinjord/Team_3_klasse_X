@@ -17,7 +17,7 @@ function renderFriendProfileView() {
 
 function friendProfileHtml() {
   if (isFriendsWithShownProfile()) {
-    return /*HTML*/ `<button>Inviter til tur(placeholder)</button>`;
+    return /*HTML*/ `<button>Inviter til tur</button>`;
   } else if (isRequestsPendingWithShownProfile()) {
     return /*HTML*/ `
         <p>Brukeren har sendt deg en venneforespørsel. Godta?</p>
