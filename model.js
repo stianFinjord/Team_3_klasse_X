@@ -6,7 +6,7 @@
 
 const model = {
     app: {
-        currentPage: "otherProfiles", // login, register, tripOverview, tripView, myProfile
+        currentPage: "login", // login, register, tripOverview, tripView, myProfile
                                 //friendsOverview, otherProfiles, friendsProfile, chatOverview, feedView, footerView
         previousPage: '',
         loggedInUser: null,
