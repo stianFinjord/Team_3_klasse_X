@@ -27,19 +27,19 @@ function getAchievementView() {
   <p>Mine achievements</p>
   <div class=achievements>
     <div>
-      <img src="../img/achievement/Achievement_badge_1.png">
+      <img src="img/achievement/Achievement_badge_1.png">
       <p>10km</p>
     </div>
     <div>
-      <img src="../img/achievement/Achievement_badge_2.png">
+      <img src="img/achievement/Achievement_badge_2.png">
       <p>25km</p>
     </div>
     <div>
-      <img src="../img/achievement/Achievement_badge_3.png">
+      <img src="img/achievement/Achievement_badge_3.png">
       <p>Maraton</p>
     </div>
     <div>
-      <img src="../img/achievement/Achievement_badge_4.png">
+      <img src="img/achievement/Achievement_badge_4.png">
       <p>5 turer</p>
     </div>
   </div>
