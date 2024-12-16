@@ -72,7 +72,7 @@ function acceptFriendRequest() {
   const shownUser = model.data.userProfile[model.app.shownUserID];
   shownUser.friendsListId.push(model.app.loggedInUser.id);
   model.app.loggedInUser.friendsListId.push(model.app.shownUserID);
-
+  acceptFriendRequestApi(model.app.loggedInUser.id, model.app.shownUserID); //sender api-spørring til DB
   removeFriendRequest();
   showView();
 }

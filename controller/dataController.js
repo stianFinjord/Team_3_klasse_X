@@ -56,3 +56,49 @@ function parseXml(xml, arrayTags) {
 
     return result;
 }
+
+fetch('http://localhost:5113/weatherforecast')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // Parse JSON response
+  })
+  .then(data => {
+    console.log(data); // Use the returned data here
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+  async function acceptFriendRequestApi(fromProfileId, toProfileId) {
+    const url = "http://localhost:5113/AcceptFriendRequest"; // Replace with your API endpoint
+    const bodyData = {
+        fromProfileId: fromProfileId, // Sender's profile ID
+        toProfileId: toProfileId     // Receiver's profile ID
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "POST", // HTTP method
+            headers: {
+                "Content-Type": "application/json", // Specify JSON data
+            },
+            body: JSON.stringify(bodyData), // Convert the body object to JSON string
+        });
+
+        if (response.ok) {
+            const result = await response.json(); // Parse JSON response
+            console.log("Friend request sent successfully:", result);
+        } else {
+            console.error("Failed to send friend request:", response.statusText);
+        }
+    } catch (err) {
+        console.error("Network error:", err);
+    }
+}
+
+// Call the function with example data
+acceptFriendRequestApi(1, 2);
+
+
