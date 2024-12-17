@@ -36,32 +36,34 @@ function createAccount() {
   createAccount.repeatPassword = "";
 }
 
-function clickRegisterButton() { //Denne må oppdateres til API
-  if (
-    model.input.createAccount.password ===
-    model.input.createAccount.repeatPassword
-  ) { 
-    let emailIsRegistered = false;
-    for (let i = 0; i < model.data.userProfile.length; i++) {
-      if (model.data.userProfile[i].email === model.input.createAccount.email) {
-        emailIsRegistered = true;
-      }
-    }
- 
-    if (emailIsRegistered) {
-      alert("Denne eposten er allerede registrert");
-      return;
-    }
- 
-    createAccount();
-    setViewLogin();
-  } else {
+async function clickRegisterButton() {
+  if (model.input.createAccount.password !== model.input.createAccount.repeatPassword) {
     alert("Passordene er ikke like!");
+    return;
   }
- }
 
- async function clickLogInButton() {
-  const user = await logInUserApi(
+  const user = await registerUserApi(
+    model.input.createAccount.userName,
+    model.input.createAccount.email,
+    model.input.createAccount.password
+  );
+
+  if (user === null) {
+    alert("Denne eposten er allerede registrert");
+    return;
+  }
+
+  // Clear form
+  model.input.createAccount.email = "";
+  model.input.createAccount.userName = "";
+  model.input.createAccount.password = "";
+  model.input.createAccount.repeatPassword = "";
+
+  setViewLogin();
+}
+
+async function clickLogInButton() {
+  const user = await loginUserApi(
       model.input.loginForm.email,
       model.input.loginForm.password
   );

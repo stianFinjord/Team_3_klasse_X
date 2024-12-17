@@ -103,9 +103,9 @@ const baseUrl = "http://localhost:5113";
     }
 }
 
-async function logInUserApi(email, password) {
+async function loginUserApi(email, password) {
     //const url = '${baseUrl}/LoginUser';
-    const url = 'http://localhost:5113/LoginUser';
+    const url = `${baseUrl}/LoginUser`;
     const bodyData = {
         Email: email,
         Password: password
@@ -132,7 +132,34 @@ async function logInUserApi(email, password) {
     }
 }
 
-// Call the function with example data
-//acceptFriendRequestApi(1, 2);
+async function registerUserApi(userName, email, password) {
+    const url = `${baseUrl}/RegisterUser`;
+    const bodyData = {
+        userName: userName,
+        email: email,
+        password: password
+    };
 
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(bodyData),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log("User registered successfully:", result);
+            return result;
+        } else {
+            console.error("Failed to register user:", response.statusText);
+            return null;
+        }
+    } catch (err) {
+        console.error("Network error:", err);
+        return null;
+    }
+}
 
