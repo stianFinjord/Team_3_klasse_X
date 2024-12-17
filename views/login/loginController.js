@@ -36,7 +36,7 @@ function createAccount() {
   createAccount.repeatPassword = "";
 }
 
-function clickRegisterButton() {
+function clickRegisterButton() { //Denne må oppdateres til API
   if (
     model.input.createAccount.password ===
     model.input.createAccount.repeatPassword
@@ -60,17 +60,32 @@ function clickRegisterButton() {
   }
  }
 
+ async function clickLogInButton() {
+  const user = await logInUserApi(
+      model.input.loginForm.email,
+      model.input.loginForm.password
+  );
+  console.log("API response: ");
+  console.log(user);
 
-function clickLogInButton() {
-  if (isUsernameAndPasswordCorrect()) {
-    model.app.loggedInUser = getUserProfileFromEmail(
-      model.input.loginForm.email
-    );
-    setViewMyProfile();
+  if (user) {
+      model.app.loggedInUser = user;
+      setViewMyProfile();
   } else {
-    alert("Passord eller brukernavn er feil!");
+      alert("Passord eller brukernavn er feil!");
   }
 }
+
+// function clickLogInButton() { //TODO: Update to api
+//   if (isUsernameAndPasswordCorrect()) {
+//     model.app.loggedInUser = getUserProfileFromEmail(
+//       model.input.loginForm.email
+//     );
+//     setViewMyProfile();
+//   } else {
+//     alert("Passord eller brukernavn er feil!");
+//   }
+// }
 
 function isUsernameAndPasswordCorrect() {
   for (let i = 0; i < model.data.userProfile.length; i++) {

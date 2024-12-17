@@ -71,6 +71,11 @@ fetch('http://localhost:5113/weatherforecast')
     console.error('There was a problem with the fetch operation:', error);
   });
 
+
+
+//Faktisk API stuff:
+const baseUrl = "http://localhost:5113";
+
   async function acceptFriendRequestApi(fromProfileId, toProfileId) {
     const url = "http://localhost:5113/AcceptFriendRequest"; // Replace with your API endpoint
     const bodyData = {
@@ -89,9 +94,38 @@ fetch('http://localhost:5113/weatherforecast')
 
         if (response.ok) {
             const result = await response.json(); // Parse JSON response
-            console.log("Friend request sent successfully:", result);
+            console.log("Friend request accepted successfully:", result);
         } else {
-            console.error("Failed to send friend request:", response.statusText);
+            console.error("Failed to accept friend request:", response.statusText);
+        }
+    } catch (err) {
+        console.error("Network error:", err);
+    }
+}
+
+async function logInUserApi(email, password) {
+    //const url = '${baseUrl}/LoginUser';
+    const url = 'http://localhost:5113/LoginUser';
+    const bodyData = {
+        Email: email,
+        Password: password
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: "POST", // HTTP method
+            headers: {
+                "Content-Type": "application/json", // Specify JSON data
+            },
+            body: JSON.stringify(bodyData), // Convert the body object to JSON string
+        });
+
+        if (response.ok) {
+            const result = await response.json(); // Parse JSON response
+            console.log("Logged in successfully:", result);
+            return result;
+        } else {
+            console.error("Failed to log in user:", response.statusText);
         }
     } catch (err) {
         console.error("Network error:", err);
@@ -99,6 +133,6 @@ fetch('http://localhost:5113/weatherforecast')
 }
 
 // Call the function with example data
-acceptFriendRequestApi(1, 2);
+//acceptFriendRequestApi(1, 2);
 
 
