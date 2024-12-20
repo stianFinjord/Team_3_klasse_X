@@ -57,19 +57,19 @@ function parseXml(xml, arrayTags) {
     return result;
 }
 
-fetch('http://localhost:5113/weatherforecast')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json(); // Parse JSON response
-  })
-  .then(data => {
-    console.log(data); // Use the returned data here
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+// fetch('http://localhost:5113/weatherforecast')
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+//     return response.json(); // Parse JSON response
+//   })
+//   .then(data => {
+//     console.log(data); // Use the returned data here
+//   })
+//   .catch(error => {
+//     console.error('There was a problem with the fetch operation:', error);
+//   });
 
 
 
