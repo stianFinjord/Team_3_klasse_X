@@ -74,10 +74,11 @@ fetch('http://localhost:5113/weatherforecast')
 
 
 //Faktisk API stuff:
-const baseUrl = "http://localhost:5113";
+//const baseUrl = "http://localhost:5113";
+const baseUrl = "https://webapplication120241219121631.azurewebsites.net/"
 
   async function acceptFriendRequestApi(fromProfileId, toProfileId) {
-    const url = "http://localhost:5113/AcceptFriendRequest"; // Replace with your API endpoint
+    const url = `${baseUrl}/AcceptFriendRequest`; // Replace with your API endpoint
     const bodyData = {
         fromProfileId: fromProfileId, // Sender's profile ID
         toProfileId: toProfileId     // Receiver's profile ID
@@ -104,7 +105,6 @@ const baseUrl = "http://localhost:5113";
 }
 
 async function loginUserApi(email, password) {
-    //const url = '${baseUrl}/LoginUser';
     const url = `${baseUrl}/LoginUser`;
     const bodyData = {
         Email: email,
