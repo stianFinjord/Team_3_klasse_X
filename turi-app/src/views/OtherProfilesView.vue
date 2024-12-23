@@ -16,12 +16,12 @@
         <p>Fysisk form: {{ user.userPhysical }}</p>
         <p class="location">{{ user.location }}</p>
         <button
-          @click="sendRequest(user)"
+          @click="sendRequest(user.id)"
           class="add-friend-btn"
-          :class="{ 'request-sent': userStore.hasSentRequestTo(user.id) }"
-          :disabled="userStore.hasSentRequestTo(user.id)"
+          :class="{ 'request-sent': hasSentRequestTo(user.id) }"
+          :disabled="hasSentRequestTo(user.id)"
         >
-          <span v-if="userStore.hasSentRequestTo(user.id)">
+          <span v-if="hasSentRequestTo(user.id)">
             <span class="checkmark">✓</span> Forespørsel sendt
           </span>
           <span v-else>Legg til venn</span>
@@ -32,31 +32,24 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useUserStore } from '@/stores/user'
-import type { User } from '@/types/user'
 
 const userStore = useUserStore()
-
-onMounted(async () => {
-  console.log('OtherProfilesView mounted')
-  console.log('Current user:', userStore.currentUser)
-  await userStore.loadNonFriends()
-  console.log('Non-friends loaded:', userStore.nonFriends)
-})
-
-async function sendRequest(user: User) {
-  console.log('Sending friend request to user:', user.id)
-  const success = await userStore.sendFriendRequest(user.id)
-  if (!success) {
-    console.error('Failed to send friend request')
-  }
-}
 
 function handleImageError(e: Event) {
   const img = e.target as HTMLImageElement
   img.src = '/img/placeholder.jpg'
   img.onerror = null
+}
+
+function hasSentRequestTo(userId: number): boolean {
+  return userStore.currentUser?.pendingRequests.includes(userId) || false
+}
+
+async function sendRequest(userId: number) {
+  if (!hasSentRequestTo(userId)) {
+    await userStore.sendFriendRequest(userId)
+  }
 }
 </script>
 
@@ -123,5 +116,17 @@ h3 {
   display: inline-block;
   margin-right: 4px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .users-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>

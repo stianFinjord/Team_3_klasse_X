@@ -28,142 +28,50 @@
 
     <!-- Friends List Section -->
     <div class="friends-grid">
-      <div v-for="friend in friends" :key="friend.id" class="friend-card info-box" @click="goToFriend(friend.id)">
-        <img
-          :src="friend.userPicture"
-          :alt="friend.userFullName"
-          class="profile-picture"
-          @error="handleImageError"
-        >
-        <h3>{{ friend.userFullName }}</h3>
-        <p>Fysisk form: {{ friend.userPhysical }}</p>
+      <div v-for="friend in userStore.allUsers" :key="friend.id" class="friend-card info-box">
+        <RouterLink :to="`/friend/${friend.id}`">
+          <img
+            :src="friend.userPicture"
+            :alt="friend.userFullName"
+            class="profile-picture"
+            @error="handleImageError"
+          >
+          <h3>{{ friend.userFullName }}</h3>
+          <p>Fysisk form: {{ friend.userPhysical }}</p>
+        </RouterLink>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { RouterLink } from 'vue-router'
 
-const router = useRouter()
 const userStore = useUserStore()
-
-interface MockUser {
-  id: number
-  userName: string
-  userFullName: string
-  userPicture: string
-  userPhysical?: number
-}
-
-const mockUsers: MockUser[] = [
-  {
-    id: 0,
-    userName: "EmmaL",
-    userFullName: "Emma Larsson",
-    userPicture: "img/placeholder.jpg",
-    userPhysical: 3
-  },
-  {
-    id: 2,
-    userName: "ErikH",
-    userFullName: "Erik Hansen",
-    userPicture: "img/placeholder.jpg",
-    userPhysical: 4
-  },
-  {
-    id: 3,
-    userName: "predator",
-    userFullName: "Kevin Tunge",
-    userPicture: "img/Userprofiles/Kevin.jpg",
-    userPhysical: 5
-  },
-  {
-    id: 7,
-    userName: "le-dog-kimchi",
-    userFullName: "Kim Kristensen",
-    userPicture: "img/Userprofiles/Kim.jpg",
-    userPhysical: 4
-  },
-  {
-    id: 8,
-    userName: "HenrikD",
-    userFullName: "Henrik Dahl",
-    userPicture: "img/placeholder.jpg",
-    userPhysical: 5
-  }
-]
-
-const friends = ref<MockUser[]>([])
-
-onMounted(async () => {
-  await userStore.loadFriendRequests()
-  // Initialize friends list based on current user's friendsListId
-  if (userStore.currentUser) {
-    friends.value = userStore.currentUser.friendsListId
-      .map(friendId => mockUsers.find(u => u.id === friendId))
-      .filter((user): user is MockUser => user !== undefined)
-  }
-})
-
-function getUserPicture(userId: number) {
-  const user = mockUsers.find(u => u.id === userId)
-  return user?.userPicture || '/img/placeholder.jpg'
-}
-
-function getUserName(userId: number) {
-  const user = mockUsers.find(u => u.id === userId)
-  return user?.userFullName || `Bruker ${userId}`
-}
-
-async function acceptRequest(fromUserId: number) {
-  const success = await userStore.acceptFriendRequest(fromUserId)
-  if (success) {
-    // Refresh friend requests list
-    await userStore.loadFriendRequests()
-
-    // Find the user from mockUsers
-    const newFriend = mockUsers.find(u => u.id === fromUserId)
-    if (newFriend) {
-      // Add the new friend to the list if not already present
-      if (!friends.value.some(f => f.id === fromUserId)) {
-        friends.value.push({
-          id: newFriend.id,
-          userName: newFriend.userName,
-          userFullName: newFriend.userFullName,
-          userPicture: newFriend.userPicture,
-          userPhysical: newFriend.userPhysical || 3
-        })
-      }
-
-      // Update the current user's friendsListId
-      if (userStore.currentUser) {
-        userStore.currentUser.friendsListId.push(fromUserId)
-      }
-    }
-  }
-}
-
-async function rejectRequest(fromUserId: number) {
-  await userStore.rejectFriendRequest(fromUserId)
-  // Refresh the friend requests list
-  await userStore.loadFriendRequests()
-}
-
-function goToFriend(id: number) {
-  // Find the correct friend from mockUsers
-  const friend = mockUsers.find(u => u.id === id)
-  if (friend) {
-    router.push(`/friend/${friend.id}`)
-  }
-}
 
 function handleImageError(e: Event) {
   const img = e.target as HTMLImageElement
   img.src = '/img/placeholder.jpg'
   img.onerror = null
+}
+
+function getUserPicture(userId: number): string {
+  const user = userStore.allUsers.find(u => u.id === userId)
+  return user?.userPicture || '/img/placeholder.jpg'
+}
+
+function getUserName(userId: number): string {
+  const user = userStore.allUsers.find(u => u.id === userId)
+  return user?.userFullName || 'Unknown User'
+}
+
+async function acceptRequest(userId: number) {
+  await userStore.acceptFriendRequest(userId)
+}
+
+async function rejectRequest(userId: number) {
+  await userStore.rejectFriendRequest(userId)
 }
 </script>
 
@@ -232,14 +140,13 @@ function handleImageError(e: Event) {
 }
 
 .friend-card {
-  cursor: pointer;
-  transition: transform 0.3s;
   text-align: center;
   padding: 1rem;
 }
 
-.friend-card:hover {
-  transform: translateY(-5px);
+.friend-card a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .profile-picture {
@@ -252,5 +159,17 @@ function handleImageError(e: Event) {
 
 h3 {
   margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .friends-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>

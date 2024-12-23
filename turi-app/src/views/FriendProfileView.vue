@@ -1,23 +1,50 @@
 <template>
-  <div class="app-view">
-    <div v-if="friend" class="profile-container">
-      <div class="profile-header info-box">
+  <div class="friend-profile app-view">
+    <div class="lofi-pattern page-background"></div>
+    <div class="profile-container info-box">
+      <div class="profile-header">
         <img
-          :src="friend.profilePicture"
-          :alt="friend.name"
+          :src="friend?.userPicture"
+          :alt="friend?.userFullName"
           class="profile-picture"
           @error="handleImageError"
         >
-        <h2>{{ friend.name }}</h2>
-        <p>Fysisk form: {{ friend.physicalForm }}</p>
+        <h1>{{ friend?.userFullName }}</h1>
+        <p class="location">{{ friend?.location }}</p>
       </div>
 
-      <div class="achievements info-box">
-        <h3>Prestasjoner</h3>
+      <div class="stats-grid">
+        <div class="stat-box info-box">
+          <h3>Turer</h3>
+          <p>{{ friend?.tripsTaken || 0 }}</p>
+        </div>
+        <div class="stat-box info-box">
+          <h3>Kilometer</h3>
+          <p>{{ friend?.kilometresWalked || 0 }}</p>
+        </div>
+        <div class="stat-box info-box">
+          <h3>Fysisk Form</h3>
+          <p>{{ friend?.userPhysical || 0 }}/5</p>
+        </div>
+      </div>
+
+      <div class="achievements-section">
+        <h2>Prestasjoner</h2>
         <div class="achievements-grid">
-          <div v-for="achievement in friend.achievements" :key="achievement.id" class="achievement">
-            <h4>{{ achievement.name }}</h4>
-            <p>{{ achievement.description }}</p>
+          <div v-for="achievement in friend?.achievementView" :key="achievement" class="achievement-card info-box">
+            <img :src="`/img/achievement/${achievement}.png`" :alt="achievement" class="achievement-icon">
+            <div class="achievement-info">
+              <h3>{{ achievement }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="friends-section">
+        <h2>Venner</h2>
+        <div class="friends-grid">
+          <div v-for="friendId in friend?.friendsListId?.slice(0, 3)" :key="friendId" class="friend-card info-box">
+            <img :src="`/img/users/${friendId.toString()}.jpg`" :alt="friendId" class="friend-image" @error="handleImageError">
           </div>
         </div>
       </div>
@@ -28,166 +55,160 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useUserStore } from '@/stores/user'
+import type { User } from '@/types/user'
 
 const route = useRoute()
+const userStore = useUserStore()
+const friend = ref<User | null>(null)
 
-interface Achievement {
-  id: number
-  name: string
-  description: string
-}
-
-interface Friend {
-  id: number
-  name: string
-  profilePicture: string
-  physicalForm: number
-  achievements: Achievement[]
-}
-
-const mockUsers = [
-  {
-    id: 0,
-    userName: "EmmaL",
-    userFullName: "Emma Larsson",
-    userPicture: "img/placeholder.jpg",
-    userPhysical: 3,
-    achievements: [
-      { id: 1, name: "10km", description: "Gått 10 kilometer" },
-      { id: 2, name: "5 turer", description: "Fullført 5 turer" }
-    ]
-  },
-  {
-    id: 2,
-    userName: "ErikH",
-    userFullName: "Erik Hansen",
-    userPicture: "img/placeholder.jpg",
-    userPhysical: 4,
-    achievements: [
-      { id: 1, name: "25km", description: "Gått 25 kilometer" },
-      { id: 2, name: "10 turer", description: "Fullført 10 turer" }
-    ]
-  },
-  {
-    id: 3,
-    userName: "predator",
-    userFullName: "Kevin Tunge",
-    userPicture: "img/Userprofiles/Kevin.jpg",
-    userPhysical: 5,
-    achievements: [
-      { id: 1, name: "Maraton", description: "Fullført en maraton-distanse" },
-      { id: 2, name: "25 turer", description: "Fullført 25 turer" }
-    ]
-  },
-  {
-    id: 7,
-    userName: "le-dog-kimchi",
-    userFullName: "Kim Kristensen",
-    userPicture: "img/Userprofiles/Kim.jpg",
-    userPhysical: 4,
-    achievements: [
-      { id: 1, name: "50km", description: "Gått 50 kilometer" },
-      { id: 2, name: "15 turer", description: "Fullført 15 turer" }
-    ]
-  },
-  {
-    id: 8,
-    userName: "HenrikD",
-    userFullName: "Henrik Dahl",
-    userPicture: "img/placeholder.jpg",
-    userPhysical: 5,
-    achievements: [
-      { id: 1, name: "100km", description: "Gått 100 kilometer" },
-      { id: 2, name: "30 turer", description: "Fullført 30 turer" }
-    ]
-  }
-]
-
-const friend = ref<Friend>({
-  id: 1,
-  name: "Kim",
-  profilePicture: "/img/users/Kim.jpg",
-  physicalForm: 4,
-  achievements: [
-    {
-      id: 1,
-      name: "Fjellkonge",
-      description: "Fullført 10 fjellturer"
-    },
-    {
-      id: 2,
-      name: "Sosial Vandrer",
-      description: "Gått på tur med 5 forskjellige venner"
-    }
-  ]
+onMounted(async () => {
+  const friendId = route.params.id as string
+  const allUsers = userStore.allUsers
+  friend.value = allUsers.find(u => u.id.toString() === friendId) || null
 })
 
 function handleImageError(e: Event) {
   const img = e.target as HTMLImageElement
   img.src = '/img/placeholder.jpg'
+  img.onerror = null
 }
-
-onMounted(() => {
-  const friendId = Number(route.params.id)
-  // Find the friend in mockUsers
-  const foundFriend = mockUsers.find(u => u.id === friendId)
-  if (foundFriend) {
-    friend.value = {
-      id: foundFriend.id,
-      name: foundFriend.userFullName,
-      profilePicture: foundFriend.userPicture,
-      physicalForm: foundFriend.userPhysical,
-      achievements: foundFriend.achievements
-    }
-  }
-})
 </script>
 
 <style scoped>
+.friend-profile {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 .profile-container {
+  padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
-  padding: 1rem;
+  background: var(--color-background);
 }
 
 .profile-header {
   text-align: center;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
-.profile-picture {
-  width: 200px;
-  height: 200px;
+.profile-header h1 {
+  margin-top: 1rem;
+  color: var(--color-primary-dark);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.location {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-box {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-box h3 {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-box p {
+  color: var(--color-primary-dark);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.achievements-section,
+.friends-section {
+  margin-bottom: 3rem;
+}
+
+.achievements-section h2,
+.friends-section h2 {
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.achievements-grid,
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.achievement-card,
+.friend-card {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.achievement-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.achievement-info h3 {
+  color: var(--color-text);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.friend-image {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1rem;
 }
 
-.achievements {
-  padding: 2rem;
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-container {
+    padding: 1rem;
+  }
+
+  .achievement-card,
+  .friend-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .achievement-icon,
+  .friend-image {
+    margin: 0 auto;
+  }
 }
 
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.achievement {
-  padding: 1rem;
-  background: rgba(76, 175, 80, 0.1);
-  border-radius: 8px;
-}
-
-.achievement h4 {
-  margin: 0 0 0.5rem 0;
-  color: #4CAF50;
-}
-
-.achievement p {
-  margin: 0;
-  font-size: 0.9rem;
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
